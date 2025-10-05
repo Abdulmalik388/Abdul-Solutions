@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul Malik Lawal | Full Stack Developer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Bootstrap Icons CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+ <style>
+   
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Color Variables */
+:root {
+  --purple-light: #d3bdfb;
+  --purple: #7b2cbf;     /* Darker, richer purple */
+  --purple-dark: #5a189a;
+}
+
+/* Utility Classes */
+.text-purple {
+  color: var(--purple);
+}
+.bg-purple {
+  background-color: var(--purple);
+}
+.btn-purple {
+  background-color: var(--purple);
+  color: #fff;
+  border: none;
+  transition: 0.3s ease;
+}
+.btn-purple:hover {
+  background-color: var(--purple-dark);
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+}
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  margin-left: 15px;
+}
+.nav-link:hover {
+  color: var(--purple) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4ecff, #e4d2ff);
+  color: #222;
+  text-align: center;
+  padding: 120px 20px;
+  animation: fadeIn 1.2s ease;
+}
+.profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 5px solid var(--purple);
+  box-shadow: 0px 6px 25px rgba(91, 38, 146, 0.3);
+  animation: bounceIn 1.5s ease;
+}
+
+/* About Section */
+#about {
+  background-color: #fff;
+  animation: slideUp 1.5s ease;
+}
+#about p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Projects Section */
+#projects {
+  animation: fadeInUp 1.5s ease;
+}
+#projects .card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#projects .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(91, 38, 146, 0.3);
+}
+#projects img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Services Section */
+#services {
+  animation: fadeInUp 1.5s ease;
+}
+#services .card {
+  border: none;
+  border-radius: 12px;
+  background: #faf6ff;
+  transition: 0.3s;
+}
+#services .card:hover {
+  background-color: var(--purple);
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+/* Contact Section */
+.text-purple {
+  color: #5a189a !important;
+}
+
+.btn-purple {
+  background-color: #5a189a;
+  border: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn-purple:hover {
+  background-color: #6d28d9;
+  color: #fff;
+}
+
+#contact {
+  background: #f8f9fa;
+  border-top: 4px solid #5a189a;
+}
+
+
+/* Footer */
+footer {
+  background-color: var(--purple-dark);
+  font-size: 0.95rem;
+}
+footer p {
+  margin: 0;
+  color: #fff;
+}
+
+/* Scroll Animations */
+section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease-in-out;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* Skills Section */
+#skills {
+  background-color: #fff;
+}
+#skills h2 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+.progress {
+  background-color: #f0e6ff;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.progress-bar {
+  border-radius: 30px;
+  transition: width 1s ease-in-out;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-purple" href="#">Abdul<span class="text-dark">Solutions</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="d-flex align-items-center justify-content-center text-center hero-section">
+    <div>
+      <img src="image/profile.jpg" alt="Abdul Malik Lawal" class="rounded-circle mb-3 profile-img">
+      <h1 class="fw-bold">Hi, I'm <span class="text-purple">Abdul Malik Lawal</span></h1>
+      <p class="lead">Full Stack Developer | Laravel & React Enthusiast</p>
+      <a href="#projects" class="btn btn-purple mt-3">View My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold text-purple mb-4">About Me</h2>
+<p>
+          Hello! I’m Abdulmalik — a passionate and creative fullstack web developer based in Nigeria.
+          <br />
+          <br />
+          I specialize in building dynamic, scalable, and user-friendly web applications using modern technologies like Laravel, React.js, PHP, and MySQL. Whether it's crafting clean frontend interfaces or developing robust backend systems, I enjoy bringing ideas to life through code.
+          <br />
+          <br />
+          With a strong focus on performance and usability, I’ve built blogs, e-commerce platforms, admin dashboards, and community job boards. I thrive on solving problems, optimizing workflows, and delivering solutions that are both functional and elegant.
+          <br />
+          <br />
+          When I’m not coding, you’ll find me exploring new tech trends, learning new tools, or helping others improve their code.
+          <br />
+          <br />
+          Let’s collaborate and build something impactful together.
+        </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-bold text-purple mb-5">Projects</h2>
+      <div class="row">
+    <div class="col-md-4 mb-4">
+  <div class="card shadow-sm">
+    <img src="image/job-finder.png" class="card-img-top" alt="Laravel Job Finder Project">
+    <div class="card-body">
+      <h5 class="card-title">Laravel Job Finder</h5>
+      <p class="card-text">
+        A complete <strong>Job Finder Platform</strong> built with <strong>Laravel</strong>, featuring both 
+        user and admin dashboards. Users can create accounts, browse and apply for jobs, 
+        while employers can post openings, manage applicants, and track submissions in real-time. 
+        Includes authentication, search filters, and responsive design for a smooth experience across all devices.
+      </p>
+      <a href="https://github.com/Abdulmalik388/community_job_board" class="btn btn-purple btn-sm">View Project</a>
+    </div>
+  </div>
+</div>
+
+      <div class="col-md-4 mb-4">
+  <div class="card shadow-sm">
+    <img src="image/charity-website.png" class="card-img-top" alt="Charity Website Project">
+    <div class="card-body">
+      <h5 class="card-title">Charity Website</h5>
+      <p class="card-text">
+        A fully functional <strong>Charity and Donation Platform</strong> developed with <strong>Laravel</strong> and <strong>Bootstrap</strong>. 
+        It allows users to explore causes, make secure donations, and view recent campaigns dynamically from the database. 
+        The admin panel lets site owners manage donations, campaigns, and user messages efficiently. 
+        Designed with a clean UI, responsive layout, and smooth animations to inspire trust and engagement.
+      </p>
+      <a href="https://fopefoluwa.com" class="btn btn-purple btn-sm">View Project</a>
+    </div>
+  </div>
+</div>
+
+       <div class="col-md-4 mb-4">
+  <div class="card shadow-sm">
+    <img src="image/portfolio.png" class="card-img-top" alt="React Portfolio Project">
+    <div class="card-body">
+      <h5 class="card-title">React + Vite Portfolio</h5>
+      <p class="card-text">
+        A fast and interactive <strong>developer portfolio</strong> built using <strong>React</strong> and <strong>Vite</strong> 
+        for optimized performance and lightning-fast builds. It showcases my projects, skills, and achievements 
+        with smooth animations, dynamic routing, and responsive design. The project focuses on clean UI, component reusability, 
+        and modern front-end practices that reflect my creativity and coding expertise.
+      </p>
+      <a href="https://abdulmalik-portfolio-kap.vercel.app/" class="btn btn-purple btn-sm">View Project</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+<section id="skills" class="py-5">
+  <div class="container text-center">
+    <h2 class="text-purple fw-bold mb-4">My Skills</h2>
+    <p class="text-muted mb-5">
+      I combine creativity and logic to build modern, functional, and visually appealing web applications.  
+      Below are some of the technologies and tools I use regularly.
+    </p>
+
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">Laravel <span class="float-end">90%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">PHP <span class="float-end">85%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">React (Vite) <span class="float-end">80%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">MySQL <span class="float-end">85%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">Bootstrap <span class="float-end">95%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">JavaScript <span class="float-end">75%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+       <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">Css <span class="float-end">85%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+       <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">HTML <span class="float-end">98%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 98%;" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+       <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">Blade <span class="float-end">95%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+       <div class="col-md-6 mb-4">
+        <h6 class="text-start fw-semibold">Git (Git Hub) <span class="float-end">80%</span></h6>
+        <div class="progress" style="height: 10px;">
+          <div class="progress-bar bg-purple" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold text-purple mb-4">Services</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card p-4 shadow-sm">
+            <h5>Web Development</h5>
+            <p>Professional and responsive websites tailored to your business goals.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-4 shadow-sm">
+            <h5>Full Stack Projects</h5>
+            <p>Complete Laravel + React apps with smooth functionality and design.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card p-4 shadow-sm">
+            <h5>Portfolio & Branding</h5>
+            <p>Personal portfolios and landing pages that impress and convert.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="fw-bold text-purple mb-4">Contact Me</h2>
+          <p class="lead mb-4">
+            Got a project in mind or need a website for your business?  
+            I’m available for freelance and full-time opportunities.  
+            Let’s bring your ideas to life with clean, modern, and responsive web solutions.
+          </p>
+          <div class="mb-4">
+            <a href="mailto:abdulmaliklawal388@gmail.com" class="d-block mb-2 text-dark text-decoration-none">
+              <i class="bi bi-envelope-fill text-purple me-2"></i> abdulmaliklawal388@gmail.com
+            </a>
+            <a href="tel:+2348081168026" class="d-block mb-3 text-dark text-decoration-none">
+              <i class="bi bi-telephone-fill text-purple me-2"></i> +234 808 116 8026
+            </a>
+          </div>
+
+          <a href="https://wa.me/2348081168026" class="btn btn-purple btn-lg px-4 mb-3" target="_blank">
+            <i class="bi bi-whatsapp me-2"></i>Message Me on WhatsApp
+          </a>
+
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="py-4 text-center text-white bg-purple mt-5">
+    <div class="container">
+      <div class="mb-3">
+        <a href="https://github.com/Abdulmalik388" target="_blank" class="text-white fs-5 mx-2"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/abdulmalik388/" target="_blank" class="text-white fs-5 mx-2"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.tiktok.com/@abdulsolutions?lang=en" target="_blank" class="text-white fs-5 mx-2"><i class="bi bi-tiktok"></i></a>
+        <a href="https://wa.me/2348081168026" target="_blank" class="text-white fs-5 mx-2"><i class="bi bi-whatsapp"></i></a>
+      </div>
+
+      <p class="mb-1 fw-semibold">Crafted with ❤️ by <span class="text-warning">Abdul Solutions</span></p>
+      <p class="mb-0 small">&copy; 2025 Abdul Solutions. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  const sections = document.querySelectorAll("section");
+  const revealOnScroll = () => {
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        sec.classList.add("visible");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+</script>
+
+</body>
+</html>
